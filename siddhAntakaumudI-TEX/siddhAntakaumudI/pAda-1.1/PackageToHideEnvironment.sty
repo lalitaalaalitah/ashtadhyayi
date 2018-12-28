@@ -1,0 +1,15 @@
+ \NeedsTeXFormat{LaTeX2e}
+ \ProvidesPackage{PackageToHideEnvironment}
+ \RequirePackage{environ}
+ \newif\if@hidden% \@hiddenfalse
+ \DeclareOption{hide}{\global\@hiddentrue}
+ \ProcessOptions\relax
+ \NewEnviron{hidelaghuchandrikA}{
+  {\null\par\hrule\null\par}%
+  {\begin{center}
+    \textbf{लघुचन्द्रिका}
+  \end{center}}\par
+  \fontsize{16}{19}\selectfont
+  {\if@hidden\else\BODY\fi}
+ } %hides anything which is in laghuchanfrikA Environment; To show the same remove [hide] option from \usepackage[hide]{PackageToHideEnvironment}
+
